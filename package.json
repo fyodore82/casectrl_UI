@@ -52,6 +52,11 @@
     ]
   },
   "jest": {
-    "transformIgnorePatterns": ["node_modules/(?!axios)/"]
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)/"
+    ]
+  },
+  "devDependencies": {
+    "cypress": "^11.0.1"
   }
 }

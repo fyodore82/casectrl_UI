@@ -42,7 +42,7 @@ const ToDoList: FC<Props> = ({ onLogout }) => {
 
   return (
     <>
-      <Box display='flex' alignItems='center' flex={1} p={1} flexDirection='column'>
+      <Box display='flex' alignItems='center' flex={1} p={1} flexDirection='column' data-e2e='toDoListForm'>
         <Button variant='contained' sx={{ marginLeft: 'auto' }} onClick={onLogout}>Log Out</Button>
         {isLoading && (
           <Box display='flex' alignItems='center' justifyContent='center' flex={1}>

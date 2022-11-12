@@ -64,6 +64,9 @@ const Login: FC<Props> = ({ onLogin }) => {
                 helperText={errors.userName || ' '}
                 error={!!errors.userName}
                 autoComplete='username'
+                inputProps={{
+                  'data-e2e': 'username',
+                }}
               />
               <TextField
                 value={values.password}
@@ -75,12 +78,18 @@ const Login: FC<Props> = ({ onLogin }) => {
                 disabled={isSubmitting}
                 helperText={errors.password || ' '}
                 error={!!errors.password}
+                inputProps={{
+                  'data-e2e': 'password',
+                }}
+                FormHelperTextProps={{
+                  'data-e2e': 'passwordHelperText'
+                } as any}
               />
               <Box display='flex' justifyContent='end' mt={1}>
-                <Button onClick={() => navigate("/signup")} disabled={isSubmitting} sx={{ marginRight: 1 }}>
+                <Button data-e2e='signUp' onClick={() => navigate("/signup")} disabled={isSubmitting} sx={{ marginRight: 1 }}>
                   Sign Up
                 </Button>
-                <Button type='submit' disabled={isSubmitting} variant='contained'>
+                <Button data-e2e='signIn' type='submit' disabled={isSubmitting} variant='contained'>
                   Sign In
                 </Button>
               </Box>
