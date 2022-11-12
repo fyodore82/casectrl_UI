@@ -46,13 +46,14 @@ const ToDoList: FC<Props> = ({ onLogout }) => {
         <Button variant='contained' sx={{ marginLeft: 'auto' }} onClick={onLogout}>Log Out</Button>
         {isLoading && (
           <Box display='flex' alignItems='center' justifyContent='center' flex={1}>
-            <Typography>Fetching To Do list</Typography>
+            <Typography data-testid='fetchingToDoList'>Fetching To Do list</Typography>
           </Box>
         )}
         {!isLoading && (
-          <Box display='flex' flexDirection='column' sx={{ width: '60%' }}>
+          <Box display='flex' flexDirection='column' sx={{ width: '60%' }} data-testid='toDoListContainer'>
             <Typography variant='h5' sx={{ textAlign: 'center', marginBottom: 1 }}>ToDo list</Typography>
             <Button
+              data-testid='newToDoItemButton'
               variant='contained'
               onClick={() => setDialogProps({ open: true })}
               sx={{ marginBottom: 1 }}
@@ -61,7 +62,7 @@ const ToDoList: FC<Props> = ({ onLogout }) => {
             </Button>
             {toDoList.length === 0 && (
               <Box display='flex' alignItems='center' justifyContent='center' flex={1}>
-                <Typography>List does not contain To Do Items</Typography>
+                <Typography data-testid='noToDoItems'>List does not contain To Do Items</Typography>
               </Box>
             )}
             {toDoList.length > 0 && (
@@ -85,6 +86,7 @@ const ToDoList: FC<Props> = ({ onLogout }) => {
                       <AssignmentTurnedInIcon />
                     </ListItemIcon>
                     <ListItemText
+                      data-testid='listItemText'
                       primary={toDoItem.title}
                       secondary={toDoItem.description}
                     />
